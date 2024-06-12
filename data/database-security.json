@@ -1,0 +1,82 @@
+{
+  "databaseSecurity": {
+    "accessControl": {
+      "authentication": {
+        "method": "SAML",
+        "idpMetadata": "https://example.com/saml/idp-metadata.xml"
+      },
+      "authorization": {
+        "roles": [
+          {
+            "name": "dbAdmins",
+            "permissions": [
+              "CREATE_DATABASE",
+              "DROP_DATABASE",
+              "CREATE_TABLE",
+              "DROP_TABLE",
+              "SELECT",
+              "INSERT",
+              "UPDATE",
+              "DELETE"
+            ]
+          },
+          {
+            "name": "readOnlyUsers",
+            "permissions": [
+              "SELECT"
+            ]
+          },
+          {
+            "name": "dataEntryUsers",
+            "permissions": [
+              "SELECT",
+              "INSERT",
+              "UPDATE"
+            ]
+          }
+        ]
+      }
+    },
+    "encryption": {
+      "dataAtRest": {
+        "enabled": true,
+        "algorithm": "AES-256"
+      },
+      "dataInTransit": {
+        "enabled": true,
+        "protocol": "TLS 1.2"
+      }
+    },
+    "auditing": {
+      "enabled": true,
+      "logRetentionDays": 180,
+      "logMonitoring": {
+        "enabled": true,
+        "alertingEnabled": true,
+        "alertRecipients": [
+          "security@example.com",
+          "dba@example.com"
+        ]
+      }
+    },
+    "backups": {
+      "enabled": true,
+      "frequency": "daily",
+      "retentionPeriod": 30
+    },
+    "networkSecurity": {
+      "firewallRules": [
+        {
+          "name": "AllowOfficeNetwork",
+          "startIpAddress": "192.168.1.0",
+          "endIpAddress": "192.168.1.255"
+        },
+        {
+          "name": "AllowVPNUsers",
+          "startIpAddress": "10.0.0.0",
+          "endIpAddress": "10.0.0.255"
+        }
+      ]
+    }
+  }
+}
