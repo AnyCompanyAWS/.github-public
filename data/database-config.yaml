@@ -1,0 +1,77 @@
+database:
+  engine: postgresql
+  version: "14.2"
+  name: myapp_db
+  credentials:
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  
+  connection:
+    host: myapp-db.example.com
+    port: 5432
+    
+  security:
+    authentication:
+      method: md5
+    
+    authorization:
+      roles:
+        - name: dbadmins
+          permissions:
+            - CREATE_DATABASE
+            - DROP_DATABASE
+            - CREATE_TABLE
+            - DROP_TABLE
+            - SELECT
+            - INSERT
+            - UPDATE
+            - DELETE
+        - name: readonlyusers
+          permissions:
+            - SELECT
+        - name: dataentryusers
+          permissions:
+            - SELECT
+            - INSERT
+            - UPDATE
+            
+    encryption:
+      data_at_rest:
+        enabled: true
+        algorithm: AES-256
+      data_in_transit:
+        enabled: true
+        protocol: TLS1.2
+        
+    auditing:
+      enabled: true
+      log_retention_days: 180
+      log_monitoring:
+        enabled: true
+        alerting_enabled: true
+        alert_recipients:
+          - security@example.com
+          - dba@example.com
+          
+    backups:
+      enabled: true
+      frequency: daily
+      retention_period: 30
+      
+    network_security:
+      firewall_rules:
+        - name: AllowOfficeNetwork
+          start_ip: 192.168.1.0
+          end_ip: 192.168.1.255
+        - name: AllowVPNUsers
+          start_ip: 10.0.0.0
+          end_ip: 10.0.0.255
+          
+  extensions:
+    - uuid-ossp
+    - pgcrypto
+    
+  maintenance_window:
+    day: sunday
+    start_time: "02:00"
+    duration: 2h
