@@ -55,7 +55,8 @@
         "alertingEnabled": true,
         "alertRecipients": [
           "security@example.com",
-          "dba@example.com"
+          "dba@example.com",
+          "ss@example.com"
         ]
       }
     },
