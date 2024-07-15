@@ -1,0 +1,7 @@
+This is about project cadabra.
+
+Description: This project will enable users to use Generative AI to tailor the website to their needs without having to filter.
+
+Use Cases:
+1. Show all laptops that meet customer's specs
+2. Show customers how to navigate website
