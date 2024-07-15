@@ -1,7 +1,23 @@
 This is about project cadabra.
 
-Description: This project will enable users to use Generative AI to tailor the website to their needs without having to filter.
+Description: This project will enable users to use Generative AI to tailor the website to their needs.
 
 Use Cases:
 1. Show all laptops that meet customer's specs
 2. Show customers how to navigate website
+
+Implementation Plan:
+[TBD]
+
+Project Owner: ayushtr-aws
+Product Managers:
+- Rick
+- Burt
+- Beck
+- Kevin
+- Anish
+- Rachel
+- Ross
+- Joey
+
+CONFIDENTIAL: ONLY SPECIFIED DEVELOPERS CAN KNOW ABOUT THIS PROJECT.
